@@ -141,7 +141,6 @@ html { scroll-padding-top: var(--nav-h); }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: min(100svh, 1000px);
   padding: calc(var(--nav-h) + clamp(48px, 8vh, 96px)) var(--gutter) 0;
   background:
     radial-gradient(120% 70% at 50% 100%, #dfe3e9 0%, rgba(223, 227, 233, 0) 70%),
