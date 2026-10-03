@@ -12,6 +12,7 @@ assets/css/styles.css         Styles
 assets/js/main.js             Hero animation, closer-look switcher, disclosures
 assets/images/hero/           Screens shown in the three hero iPhones (screen-1 is the front phone)
 assets/images/closer-look/    One image per app state and appearance: <state>-light.svg / <state>-dark.svg
+assets/images/badges/         Official App Store and Mac App Store badges (SVG)
 assets/images/devices/        Device bezel PNGs (iPhone 18 Pro Black/Glacier/Burgundy, MacBook Neo, iPad Pro)
 .github/workflows/pages.yml   Deploys the site to GitHub Pages on every push to main
 ```
