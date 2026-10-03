@@ -72,7 +72,7 @@ button { font: inherit; color: inherit; }
 /* Hand-drawn underline that draws itself in when the heading is revealed */
 .squiggle { position: relative; display: inline-block; white-space: nowrap; }
 .squiggle__line {
-  position: absolute; left: -2%; bottom: -0.03em; width: 104%; height: 0.2em; /* top edge sits on the baseline */
+  position: absolute; left: -2%; bottom: 0.03em; width: 104%; height: 0.2em; /* overlaps the baseline slightly */
   overflow: visible; pointer-events: none;
 }
 .squiggle__line path {
