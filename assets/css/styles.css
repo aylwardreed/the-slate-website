@@ -141,7 +141,6 @@ html { scroll-padding-top: var(--nav-h); }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: min(100svh, 1000px);
   padding: calc(var(--nav-h) + clamp(48px, 8vh, 96px)) var(--gutter) 0;
   background:
     radial-gradient(120% 70% at 50% 100%, #dfe3e9 0%, rgba(223, 227, 233, 0) 70%),
@@ -376,6 +375,8 @@ html { scroll-padding-top: var(--nav-h); }
 .disclosure__inner { padding: 0 0 32px; color: var(--ink-2); max-width: 68ch; }
 .disclosure__inner h3 { margin: 24px 0 6px; font-size: 17px; color: var(--ink); }
 .disclosure__inner p { margin: 0 0 12px; }
+.disclosure__inner a { color: #0066cc; text-decoration: underline; text-underline-offset: 2px; }
+.disclosure__inner a:hover { text-decoration-thickness: 2px; }
 
 /* ---------- Footer ---------- */
 .footer {
