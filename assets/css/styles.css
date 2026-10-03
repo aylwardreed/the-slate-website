@@ -68,25 +68,42 @@ button { font: inherit; color: inherit; }
   margin: 0 0 clamp(32px, 5vw, 56px);
 }
 
-/* ---------- Nav ---------- */
+/* ---------- Nav ----------
+   Transparent over the hero, with the wordmark hidden. Once the hero title
+   scrolls under the bar, JS adds .is-solid: the bar gains its frosted
+   background and the wordmark fades in. */
+:root { --nav-h: 52px; }
+html { scroll-padding-top: var(--nav-h); }
 .nav {
-  position: sticky; top: 0; z-index: 50;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: rgba(245, 245, 247, 0);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.35s var(--ease), border-color 0.35s var(--ease),
+    -webkit-backdrop-filter 0.35s var(--ease), backdrop-filter 0.35s var(--ease);
+}
+.nav.is-solid {
   background: rgba(245, 245, 247, 0.72);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
 }
-.nav.is-scrolled { border-bottom-color: rgba(0, 0, 0, 0.08); }
 .nav__inner {
   max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter);
-  height: 52px; display: flex; align-items: center; justify-content: space-between;
+  height: var(--nav-h); display: flex; align-items: center; justify-content: space-between;
 }
 .nav__brand {
   font-family: var(--font-display); font-weight: 900; font-size: 21px;
   color: var(--ink); text-decoration: none;
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), visibility 0s linear 0.35s;
 }
-.nav__links { display: flex; gap: 24px; }
+.nav.is-solid .nav__brand {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), visibility 0s;
+}
+.no-js .nav { background: rgba(245, 245, 247, 0.72); }
+.no-js .nav__brand { opacity: 1; visibility: visible; transform: none; }
+.nav__links { display: flex; gap: 24px; margin-left: auto; }
 .nav__links a { color: var(--ink-2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
 .nav__links a:hover { color: var(--ink); }
 
@@ -125,7 +142,7 @@ button { font: inherit; color: inherit; }
 .hero {
   position: relative;
   min-height: min(100svh, 1000px);
-  padding: clamp(48px, 8vh, 96px) var(--gutter) 0;
+  padding: calc(var(--nav-h) + clamp(48px, 8vh, 96px)) var(--gutter) 0;
   background:
     radial-gradient(120% 70% at 50% 100%, #dfe3e9 0%, rgba(223, 227, 233, 0) 70%),
     linear-gradient(180deg, var(--bg-soft) 0%, #eef0f3 100%);
