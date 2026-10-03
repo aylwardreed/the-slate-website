@@ -303,6 +303,7 @@ html { scroll-padding-top: var(--nav-h); }
 .pill[aria-expanded="true"] { border-radius: 24px; background: #fff; }
 .pill[aria-expanded="true"] .pill__icon { transform: rotate(45deg); background: var(--slate); }
 .pill[aria-expanded="true"] .pill__body { max-height: 10em; opacity: 1; margin-top: 6px; transition-delay: 0s, 0.12s, 0s; }
+.closer__more { padding: 6px 22px 0 54px; font-size: 17px; color: var(--ink-2); }
 
 .closer__stage {
   display: flex; align-items: center; justify-content: center;
@@ -318,6 +319,19 @@ html { scroll-padding-top: var(--nav-h); }
 }
 /* Crossfade: the new screen fades in on top of the old one, which is removed afterwards. */
 .phone--closer .device__screen img.is-entering { opacity: 0; }
+/* Screenshots taller than the screen keep their full height and pan down and back up. */
+.phone--closer .device__screen img.is-tall {
+  height: auto; bottom: auto;
+  animation: screen-scroll var(--scroll-time, 12s) ease-in-out infinite alternate;
+}
+.phone--closer:hover .device__screen img.is-tall { animation-play-state: paused; }
+@keyframes screen-scroll {
+  0%, 12% { transform: translateY(0); }
+  88%, 100% { transform: translateY(var(--scroll-y, 0)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phone--closer .device__screen img.is-tall { animation: none; }
+}
 
 .closer__controls {
   grid-column: 2;
@@ -392,6 +406,7 @@ html { scroll-padding-top: var(--nav-h); }
   .closer__list li { scroll-snap-align: center; flex: none; }
   .pill { width: auto; padding: 10px 18px 10px 10px; white-space: nowrap; }
   .pill__body { display: none; }
+  .closer__more { align-self: center; padding: 0 8px; white-space: nowrap; }
   .closer__controls { grid-column: 1; grid-row: 3; padding: 16px 24px 0; }
   .closer__caption { display: block; min-height: 3em; text-align: center; color: var(--ink-2); max-width: 36ch; }
 }

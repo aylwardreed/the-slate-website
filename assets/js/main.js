@@ -84,13 +84,18 @@
     var device = closer.querySelector("[data-appearance-current]");
     var caption = closer.querySelector("[data-closer-caption]");
     var appearanceLabel = closer.querySelector("[data-appearance-label]");
-    var current = { state: "home", appearance: "light" };
+    var current = { state: pills[0] ? pills[0].dataset.state : "", appearance: "light" };
 
+    var pillFor = function (state) {
+      return pills.filter(function (p) { return p.dataset.state === state; })[0];
+    };
     var srcFor = function (s) {
-      return "assets/images/closer-look/" + s.state + "-" + s.appearance + ".svg";
+      var pill = pillFor(s.state);
+      var ext = (pill && pill.dataset.ext) || "svg";
+      return "assets/images/closer-look/" + s.state + "-" + s.appearance + "." + ext;
     };
     var labelFor = function (state) {
-      var pill = pills.filter(function (p) { return p.dataset.state === state; })[0];
+      var pill = pillFor(state);
       return pill ? pill.querySelector(".pill__label").textContent : "";
     };
 
@@ -101,17 +106,36 @@
       });
     });
 
+    // A screenshot taller than the screen scrolls slowly from top to bottom and back.
+    var fitScroll = function (img) {
+      var check = function () {
+        if (!img.naturalWidth || !screen.clientWidth) return;
+        var screenRatio = screen.clientHeight / screen.clientWidth;
+        var imgRatio = img.naturalHeight / img.naturalWidth;
+        var tall = imgRatio > screenRatio * 1.05;
+        img.classList.toggle("is-tall", tall);
+        if (tall) {
+          var overflow = 1 - screenRatio / imgRatio; // share of the image hidden below the screen
+          img.style.setProperty("--scroll-y", (-overflow * 100).toFixed(2) + "%");
+          img.style.setProperty("--scroll-time", Math.max(8, overflow * 30).toFixed(1) + "s");
+        }
+      };
+      if (img.complete) check(); else img.addEventListener("load", check);
+    };
+    screen.querySelectorAll("img").forEach(fitScroll);
+
     var swapImage = function () {
       var oldImg = screen.querySelector("img:not(.is-leaving)");
       var newImg = new Image(390, 844);
       newImg.src = srcFor(current);
       newImg.alt = labelFor(current.state) + " screen, " + current.appearance + " appearance (placeholder)";
+      fitScroll(newImg);
       if (reduceMotion.matches || !oldImg) {
         screen.innerHTML = "";
         screen.appendChild(newImg);
         return;
       }
-      newImg.className = "is-entering";
+      newImg.classList.add("is-entering");
       screen.appendChild(newImg);
       oldImg.classList.add("is-leaving");
       requestAnimationFrame(function () {

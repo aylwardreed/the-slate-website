@@ -32,9 +32,13 @@ position variables (`--sx`, `--sy`, `--sw`, `--sh`, `--sr`) for that device in
   centre `your-slate.jpg`, right `in-production.jpg`, plus `ipad-favourites.jpg`
   and `mac-your-slate.jpg`), or update the `src` attributes in `index.html`.
 - Take a closer look: the states are the `data-state` values on the buttons in
-  `index.html` (`home`, `detail`, `editing`, `search`, `settings`). Each needs a
-  light and a dark image. If the extension changes, update `srcFor` in
-  `assets/js/main.js`.
+  `index.html` (`favourites`, `your-slate`, `in-development`, `project-pages`,
+  `talent-pages`, `siri-ai`, `add-to-calendar`). Each needs a light and a dark
+  image named `<state>-light.svg` and `<state>-dark.svg`. For PNG or JPG files,
+  add `data-ext="png"` (or `"jpg"`) to that button.
+  A screenshot taller than the screen (for example a full-length scrolling
+  capture, 1179 px wide) pans slowly down and back up inside the frame, and
+  pauses on hover. The `your-slate` placeholder is tall to show this.
 
 ## Local preview
 
