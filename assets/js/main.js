@@ -11,6 +11,20 @@
 
   /* ---------- Nav border on scroll ---------- */
   var nav = document.querySelector("[data-nav]");
+  var heroTitle = document.getElementById("hero-title");
+  if (nav && heroTitle) {
+    if ("IntersectionObserver" in window) {
+      // Solid bar and wordmark once the hero title has scrolled up under the bar.
+      var navHeight = nav.offsetHeight;
+      new IntersectionObserver(function (entries) {
+        var e = entries[0];
+        var passed = !e.isIntersecting && e.boundingClientRect.top < navHeight;
+        nav.classList.toggle("is-solid", passed);
+      }, { rootMargin: "-" + navHeight + "px 0px 0px 0px" }).observe(heroTitle);
+    } else {
+      nav.classList.add("is-solid");
+    }
+  }
 
   /* ---------- Hero: intro animation + scroll parallax ---------- */
   var stage = document.querySelector("[data-hero-stage]");
@@ -35,7 +49,6 @@
     ticking = true;
     requestAnimationFrame(function () {
       var y = window.scrollY;
-      if (nav) nav.classList.toggle("is-scrolled", y > 4);
       if (stage && !reduceMotion.matches) {
         var p = Math.min(Math.max(y / (window.innerHeight * 0.8), 0), 1);
         stage.style.setProperty("--p", p.toFixed(3));
