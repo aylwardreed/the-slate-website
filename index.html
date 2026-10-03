@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Slate</title>
+  <meta name="description" content="The Slate for iPhone. Placeholder description.">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" data-nav>
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top">The Slate</a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#closer-look">Closer look</a>
+        <a href="#privacy-terms">Privacy &amp; Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <h1 class="hero__title" id="hero-title">The Slate</h1>
+        <!-- PLACEHOLDER copy: replace with the real tagline. -->
+        <p class="hero__tagline">A placeholder tagline that says what The Slate does in one line.</p>
+
+        <!--
+          Official Apple "Download on the App Store" badge, using the embed code
+          from Apple Marketing Tools (tools.applemarketingtools.com).
+          TODO: replace the href with the app's App Store URL once it is live.
+        -->
+        <a class="app-store-badge" href="https://apps.apple.com/" aria-label="Download The Slate on the App Store">
+          <img src="https://tools.applemarketingtools.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+               alt="Download on the App Store" width="250" height="83">
+        </a>
+      </div>
+
+      <!--
+        Three iPhone mockups. The device frame is drawn in CSS; each <img> is the
+        screen only. Replace the files in assets/images/hero/ with real
+        screenshots (portrait, 1179 × 2556 or any 9:19.5 image).
+      -->
+      <div class="hero__stage" data-hero-stage>
+        <figure class="phone phone--left" data-phone="left">
+          <div class="phone__screen"><img src="assets/images/hero/screen-2.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+        </figure>
+        <figure class="phone phone--right" data-phone="right">
+          <div class="phone__screen"><img src="assets/images/hero/screen-3.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+        </figure>
+        <figure class="phone phone--center" data-phone="center">
+          <div class="phone__screen"><img src="assets/images/hero/screen-1.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ TAKE A CLOSER LOOK ============ -->
+    <section class="closer" id="closer-look" aria-labelledby="closer-title">
+      <h2 class="section-title reveal" id="closer-title">Take a closer look.</h2>
+
+      <div class="closer__card reveal" data-closer>
+        <!-- Feature list. Each button's data-state matches an image pair in assets/images/closer-look/. PLACEHOLDER labels and copy. -->
+        <ul class="closer__list" role="list">
+          <li>
+            <button class="pill" type="button" aria-expanded="true" data-state="home">
+              <span class="pill__icon" aria-hidden="true"></span>
+              <span class="pill__label">Home</span>
+              <span class="pill__body">Placeholder description of the home screen and what it shows at a glance.</span>
+            </button>
+          </li>
+          <li>
+            <button class="pill" type="button" aria-expanded="false" data-state="detail">
+              <span class="pill__icon" aria-hidden="true"></span>
+              <span class="pill__label">Detail view</span>
+              <span class="pill__body">Placeholder description of the detail view.</span>
+            </button>
+          </li>
+          <li>
+            <button class="pill" type="button" aria-expanded="false" data-state="editing">
+              <span class="pill__icon" aria-hidden="true"></span>
+              <span class="pill__label">Editing</span>
+              <span class="pill__body">Placeholder description of the editing state.</span>
+            </button>
+          </li>
+          <li>
+            <button class="pill" type="button" aria-expanded="false" data-state="search">
+              <span class="pill__icon" aria-hidden="true"></span>
+              <span class="pill__label">Search</span>
+              <span class="pill__body">Placeholder description of search.</span>
+            </button>
+          </li>
+          <li>
+            <button class="pill" type="button" aria-expanded="false" data-state="settings">
+              <span class="pill__icon" aria-hidden="true"></span>
+              <span class="pill__label">Settings</span>
+              <span class="pill__body">Placeholder description of the settings screen.</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="closer__stage">
+          <figure class="phone phone--closer">
+            <div class="phone__screen" data-closer-screen>
+              <img src="assets/images/closer-look/home-light.svg" alt="Home screen (placeholder)" width="390" height="844">
+            </div>
+          </figure>
+        </div>
+
+        <div class="closer__controls">
+          <p class="closer__caption" aria-live="polite" data-closer-caption></p>
+          <div class="swatches" role="radiogroup" aria-label="Appearance">
+            <button class="swatch swatch--light" type="button" role="radio" aria-checked="true" data-appearance="light" aria-label="Light"></button>
+            <button class="swatch swatch--dark" type="button" role="radio" aria-checked="false" data-appearance="dark" aria-label="Dark"></button>
+          </div>
+          <p class="swatches__label" aria-live="polite" data-appearance-label>Light</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY & TERMS ============ -->
+    <section class="legal" id="privacy-terms" aria-labelledby="legal-title">
+      <h2 class="section-title reveal" id="legal-title">Privacy &amp; Terms</h2>
+
+      <div class="legal__list reveal">
+        <!-- PLACEHOLDER legal copy. Replace before launch. -->
+        <details class="disclosure" data-disclosure>
+          <summary class="disclosure__summary">
+            <span>Privacy Policy</span>
+            <span class="disclosure__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="disclosure__content">
+            <div class="disclosure__inner">
+              <p class="small">Last updated: placeholder date</p>
+              <h3>Data collection</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              <h3>How data is used</h3>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              <h3>Contact</h3>
+              <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="disclosure" data-disclosure>
+          <summary class="disclosure__summary">
+            <span>Terms of Use</span>
+            <span class="disclosure__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="disclosure__content">
+            <div class="disclosure__inner">
+              <p class="small">Last updated: placeholder date</p>
+              <h3>Acceptance of terms</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium tincidunt lacus, nulla gravida orci a odio.</p>
+              <h3>Use of the app</h3>
+              <p>Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.</p>
+              <h3>Limitation of liability</h3>
+              <p>Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="small">&copy; <span data-year>2026</span> The Slate. All rights reserved.</p>
+    <p class="small">Apple, the Apple logo, iPhone, and App Store are trademarks of Apple Inc., registered in the U.S. and other countries and regions.</p>
+  </footer>
+</body>
+</html>
