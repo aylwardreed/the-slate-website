@@ -156,7 +156,7 @@ html { scroll-padding-top: var(--nav-h); }
   margin: 0;
 }
 .hero__tagline {
-  margin: 16px auto 28px; max-width: 34ch;
+  margin: 16px auto 28px; max-width: 40ch; text-wrap: balance;
   font-size: clamp(19px, 2.2vw, 24px); line-height: 1.3; color: var(--ink-2);
 }
 .store-badges { display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; }
