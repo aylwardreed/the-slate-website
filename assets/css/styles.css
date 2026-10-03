@@ -127,7 +127,7 @@ html { scroll-padding-top: var(--nav-h); }
   overflow: hidden;
   background: #000;
 }
-.device__screen img { width: 100%; height: 100%; object-fit: cover; }
+.device__screen img, .device__screen video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* iPhone 18 Pro, 1350 x 2760 source, cutout 71,69 to 1278,2691 */
 .device--iphone { --sx: 5.04%; --sy: 2.39%; --sw: 89.85%; --sh: 95.22%; --sr: 15.7% / 7.2%; }
@@ -303,6 +303,7 @@ html { scroll-padding-top: var(--nav-h); }
 .pill[aria-expanded="true"] { border-radius: 24px; background: #fff; }
 .pill[aria-expanded="true"] .pill__icon { transform: rotate(45deg); background: var(--slate); }
 .pill[aria-expanded="true"] .pill__body { max-height: 10em; opacity: 1; margin-top: 6px; transition-delay: 0s, 0.12s, 0s; }
+.closer__more { padding: 6px 22px 0 54px; font-size: 17px; color: var(--ink-2); }
 
 .closer__stage {
   display: flex; align-items: center; justify-content: center;
@@ -312,12 +313,26 @@ html { scroll-padding-top: var(--nav-h); }
 .phone--closer .device__bezel { transition: opacity 0.5s var(--ease); }
 .phone--closer .device__bezel--dark { position: absolute; inset: 0; opacity: 0; }
 .phone--closer[data-appearance-current="dark"] .device__bezel--dark { opacity: 1; }
-.phone--closer .device__screen img {
+.phone--closer .device__screen img,
+.phone--closer .device__screen video {
   position: absolute; inset: 0;
   transition: opacity 0.5s ease;
 }
 /* Crossfade: the new screen fades in on top of the old one, which is removed afterwards. */
-.phone--closer .device__screen img.is-entering { opacity: 0; }
+.phone--closer .device__screen .is-entering { opacity: 0; }
+/* Screenshots taller than the screen keep their full height and pan down and back up. */
+.phone--closer .device__screen img.is-tall {
+  height: auto; bottom: auto;
+  animation: screen-scroll var(--scroll-time, 12s) ease-in-out infinite alternate;
+}
+.phone--closer:hover .device__screen img.is-tall { animation-play-state: paused; }
+@keyframes screen-scroll {
+  0%, 12% { transform: translateY(0); }
+  88%, 100% { transform: translateY(var(--scroll-y, 0)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phone--closer .device__screen img.is-tall { animation: none; }
+}
 
 .closer__controls {
   grid-column: 2;
@@ -392,6 +407,7 @@ html { scroll-padding-top: var(--nav-h); }
   .closer__list li { scroll-snap-align: center; flex: none; }
   .pill { width: auto; padding: 10px 18px 10px 10px; white-space: nowrap; }
   .pill__body { display: none; }
+  .closer__more { align-self: center; padding: 0 8px; white-space: nowrap; }
   .closer__controls { grid-column: 1; grid-row: 3; padding: 16px 24px 0; }
   .closer__caption { display: block; min-height: 3em; text-align: center; color: var(--ink-2); max-width: 36ch; }
 }
