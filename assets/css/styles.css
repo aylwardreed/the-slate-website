@@ -177,7 +177,7 @@ html { scroll-padding-top: var(--nav-h); }
   --p: 0;                                 /* scroll progress, set by JS (0 to 1) */
   position: relative;
   width: 100%; max-width: var(--max);
-  height: calc(var(--w) * 1840 / 900 + var(--w) * 0.1); /* full centre phone plus room for its shadow */
+  height: calc(var(--w) * 1840 / 900 * 0.95); /* centre phone, very slightly cropped at the bottom */
   margin-top: clamp(40px, 6vh, 72px);
 }
 .hero__stage .phone {
