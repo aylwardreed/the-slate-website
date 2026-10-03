@@ -177,16 +177,16 @@ button { font: inherit; color: inherit; }
 }
 .hero__stage.is-ready .hero-mac, .hero__stage.is-ready .hero-ipad { animation-play-state: running; }
 .hero-mac {
-  width: calc(var(--w) * 1.8);
-  margin-left: calc(var(--w) * -2.3);
-  top: calc(var(--w) * 0.34);
+  width: calc(var(--w) * 2);
+  margin-left: calc(var(--w) * -2.65);
+  top: calc(var(--w) * 0.26);
   animation-name: slide-from-left;
   translate: calc(var(--p) * -10%) 0;
 }
 .hero-ipad {
-  width: calc(var(--w) * 1.5);
-  margin-left: calc(var(--w) * 0.62);
-  top: calc(var(--w) * 0.44);
+  width: calc(var(--w) * 1.68);
+  margin-left: calc(var(--w) * 0.9);
+  top: calc(var(--w) * 0.36);
   animation-name: slide-from-right;
   translate: calc(var(--p) * 10%) 0;
 }
@@ -354,6 +354,7 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 820px) {
+  .hero-mac, .hero-ipad { display: none; }
   .nav__links { gap: 16px; }
   .closer__card {
     grid-template-columns: 1fr;
@@ -379,8 +380,6 @@ button { font: inherit; color: inherit; }
 @media (max-width: 480px) {
   .nav__links a:first-child { display: none; }
   .hero__stage { --w: 46vw; }
-  .hero-mac  { width: calc(var(--w) * 1.5); margin-left: calc(var(--w) * -1.85); top: calc(var(--w) * 0.05); }
-  .hero-ipad { width: calc(var(--w) * 1.25); margin-left: calc(var(--w) * 0.62); top: calc(var(--w) * 0.12); }
 }
 
 @media (prefers-reduced-motion: reduce) {
