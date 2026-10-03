@@ -36,6 +36,12 @@ position variables (`--sx`, `--sy`, `--sw`, `--sh`, `--sr`) for that device in
   `talent-pages`, `siri-ai`, `add-to-calendar`). Each needs a light and a dark
   image named `<state>-light.svg` and `<state>-dark.svg`. For PNG or JPG files,
   add `data-ext="png"` (or `"jpg"`) to that button.
+  Video: add `data-ext="mp4"` and supply `<state>-light.mp4` and
+  `<state>-dark.mp4`. Videos play muted on a loop and fade in once the first
+  frame is ready. Recommended: H.264 MP4, 590 × 1278 (half an iPhone screen
+  recording), 30 fps, no audio track, 10 to 20 seconds, about 1 to 3 MB each,
+  exported with "fast start" (`ffmpeg -i in.mov -vf scale=590:-2 -c:v libx264
+  -crf 26 -preset slow -an -movflags +faststart out.mp4`).
   A screenshot taller than the screen (for example a full-length scrolling
   capture, 1179 px wide) pans slowly down and back up inside the frame, and
   pauses on hover. The `your-slate` placeholder is tall to show this.

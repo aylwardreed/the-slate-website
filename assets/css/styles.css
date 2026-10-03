@@ -127,7 +127,7 @@ html { scroll-padding-top: var(--nav-h); }
   overflow: hidden;
   background: #000;
 }
-.device__screen img { width: 100%; height: 100%; object-fit: cover; }
+.device__screen img, .device__screen video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* iPhone 18 Pro, 1350 x 2760 source, cutout 71,69 to 1278,2691 */
 .device--iphone { --sx: 5.04%; --sy: 2.39%; --sw: 89.85%; --sh: 95.22%; --sr: 15.7% / 7.2%; }
@@ -313,12 +313,13 @@ html { scroll-padding-top: var(--nav-h); }
 .phone--closer .device__bezel { transition: opacity 0.5s var(--ease); }
 .phone--closer .device__bezel--dark { position: absolute; inset: 0; opacity: 0; }
 .phone--closer[data-appearance-current="dark"] .device__bezel--dark { opacity: 1; }
-.phone--closer .device__screen img {
+.phone--closer .device__screen img,
+.phone--closer .device__screen video {
   position: absolute; inset: 0;
   transition: opacity 0.5s ease;
 }
 /* Crossfade: the new screen fades in on top of the old one, which is removed afterwards. */
-.phone--closer .device__screen img.is-entering { opacity: 0; }
+.phone--closer .device__screen .is-entering { opacity: 0; }
 /* Screenshots taller than the screen keep their full height and pan down and back up. */
 .phone--closer .device__screen img.is-tall {
   height: auto; bottom: auto;

@@ -99,10 +99,11 @@
       return pill ? pill.querySelector(".pill__label").textContent : "";
     };
 
-    // Preload every image pair so switching is instant.
+    // Preload every image pair so switching is instant (videos load on demand).
     pills.forEach(function (p) {
       ["light", "dark"].forEach(function (a) {
-        new Image().src = srcFor({ state: p.dataset.state, appearance: a });
+        var src = srcFor({ state: p.dataset.state, appearance: a });
+        if (!/\.(mp4|m4v|mov|webm)$/i.test(src)) new Image().src = src;
       });
     });
 
@@ -122,26 +123,61 @@
       };
       if (img.complete) check(); else img.addEventListener("load", check);
     };
-    screen.querySelectorAll("img").forEach(fitScroll);
+    Array.prototype.forEach.call(screen.querySelectorAll("img"), fitScroll);
+
+    var isVideo = function (src) { return /\.(mp4|m4v|mov|webm)$/i.test(src); };
+
+    var createMedia = function () {
+      var src = srcFor(current);
+      var label = labelFor(current.state) + " screen, " + current.appearance + " appearance";
+      var el;
+      if (isVideo(src)) {
+        el = document.createElement("video");
+        el.muted = true;
+        el.loop = true;
+        el.playsInline = true;
+        el.setAttribute("muted", "");
+        el.setAttribute("playsinline", "");
+        el.setAttribute("aria-label", label);
+        el.autoplay = !reduceMotion.matches;
+        el.preload = "auto";
+        el.src = src;
+      } else {
+        el = new Image(390, 844);
+        el.src = src;
+        el.alt = label + " (placeholder)";
+        fitScroll(el);
+      }
+      return el;
+    };
 
     var swapImage = function () {
-      var oldImg = screen.querySelector("img:not(.is-leaving)");
-      var newImg = new Image(390, 844);
-      newImg.src = srcFor(current);
-      newImg.alt = labelFor(current.state) + " screen, " + current.appearance + " appearance (placeholder)";
-      fitScroll(newImg);
-      if (reduceMotion.matches || !oldImg) {
+      var oldEl = screen.querySelector(":scope > :not(.is-leaving)");
+      var newEl = createMedia();
+      if (reduceMotion.matches || !oldEl) {
         screen.innerHTML = "";
-        screen.appendChild(newImg);
+        screen.appendChild(newEl);
         return;
       }
-      newImg.classList.add("is-entering");
-      screen.appendChild(newImg);
-      oldImg.classList.add("is-leaving");
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () { newImg.classList.remove("is-entering"); });
-      });
-      setTimeout(function () { if (oldImg.parentNode) oldImg.parentNode.removeChild(oldImg); }, 650);
+      newEl.classList.add("is-entering");
+      screen.appendChild(newEl);
+      oldEl.classList.add("is-leaving");
+      var shown = false;
+      var show = function () {
+        if (shown) return;
+        shown = true;
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { newEl.classList.remove("is-entering"); });
+        });
+        setTimeout(function () { if (oldEl.parentNode) oldEl.parentNode.removeChild(oldEl); }, 650);
+      };
+      // A video fades in once its first frame is ready, so the screen never flashes black.
+      if (newEl.tagName === "VIDEO") {
+        newEl.addEventListener("loadeddata", show);
+        setTimeout(show, 1500);
+      } else {
+        show();
+      }
     };
 
     var updateCaption = function (pill) {
