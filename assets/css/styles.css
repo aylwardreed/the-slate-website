@@ -297,10 +297,10 @@ button { font: inherit; color: inherit; }
 .phone--closer[data-appearance-current="dark"] .device__bezel--dark { opacity: 1; }
 .phone--closer .device__screen img {
   position: absolute; inset: 0;
-  transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
+  transition: opacity 0.5s ease;
 }
-.phone--closer .device__screen img.is-leaving { opacity: 0; transform: scale(1.04); }
-.phone--closer .device__screen img.is-entering { opacity: 0; transform: scale(0.97); }
+/* Crossfade: the new screen fades in on top of the old one, which is removed afterwards. */
+.phone--closer .device__screen img.is-entering { opacity: 0; }
 
 .closer__controls {
   grid-column: 2;
