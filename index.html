@@ -79,53 +79,53 @@
 
       <div class="closer__card reveal" data-closer>
         <!-- Feature list. Each button's data-state matches an image pair in assets/images/closer-look/
-             (<state>-light.svg / <state>-dark.svg; add data-ext="png", "jpg" or "mp4" to a button to use that format).
+             (<state>-light.<ext> / <state>-dark.<ext>, where data-ext on the button sets the format: jpg, png, svg or mp4).
              Images taller than the screen scroll slowly inside the frame. PLACEHOLDER descriptions. -->
         <ul class="closer__list" role="list">
           <li>
-            <button class="pill" type="button" aria-expanded="true" data-state="favourites">
+            <button class="pill" type="button" aria-expanded="true" data-state="favourites" data-ext="jpg">
               <span class="pill__icon" aria-hidden="true"></span>
               <span class="pill__label">Favourites</span>
               <span class="pill__body">Placeholder description of Favourites.</span>
             </button>
           </li>
           <li>
-            <button class="pill" type="button" aria-expanded="false" data-state="your-slate">
+            <button class="pill" type="button" aria-expanded="false" data-state="your-slate" data-ext="jpg">
               <span class="pill__icon" aria-hidden="true"></span>
               <span class="pill__label">Your Slate</span>
               <span class="pill__body">Placeholder description of Your Slate.</span>
             </button>
           </li>
           <li>
-            <button class="pill" type="button" aria-expanded="false" data-state="in-development">
+            <button class="pill" type="button" aria-expanded="false" data-state="in-development" data-ext="jpg">
               <span class="pill__icon" aria-hidden="true"></span>
               <span class="pill__label">In Development</span>
               <span class="pill__body">Placeholder description of In Development.</span>
             </button>
           </li>
           <li>
-            <button class="pill" type="button" aria-expanded="false" data-state="project-pages">
+            <button class="pill" type="button" aria-expanded="false" data-state="project-pages" data-ext="mp4">
               <span class="pill__icon" aria-hidden="true"></span>
               <span class="pill__label">Project Pages</span>
               <span class="pill__body">Placeholder description of Project Pages.</span>
             </button>
           </li>
           <li>
-            <button class="pill" type="button" aria-expanded="false" data-state="talent-pages">
+            <button class="pill" type="button" aria-expanded="false" data-state="talent-pages" data-ext="mp4">
               <span class="pill__icon" aria-hidden="true"></span>
               <span class="pill__label">Talent Pages</span>
               <span class="pill__body">Placeholder description of Talent Pages.</span>
             </button>
           </li>
           <li>
-            <button class="pill" type="button" aria-expanded="false" data-state="siri-ai">
+            <button class="pill" type="button" aria-expanded="false" data-state="siri-ai" data-ext="mp4">
               <span class="pill__icon" aria-hidden="true"></span>
               <span class="pill__label">Siri AI</span>
               <span class="pill__body">Placeholder description of Siri AI.</span>
             </button>
           </li>
           <li>
-            <button class="pill" type="button" aria-expanded="false" data-state="add-to-calendar">
+            <button class="pill" type="button" aria-expanded="false" data-state="add-to-calendar" data-ext="jpg">
               <span class="pill__icon" aria-hidden="true"></span>
               <span class="pill__label">Add to Calendar</span>
               <span class="pill__body">Placeholder description of Add to Calendar.</span>
@@ -138,7 +138,7 @@
           <!-- Glacier bezel for the light appearance, Black bezel for dark. -->
           <figure class="device device--iphone phone--closer" data-appearance-current="light">
             <div class="device__screen" data-closer-screen>
-              <img src="assets/images/closer-look/favourites-light.svg" alt="Favourites screen, light appearance (placeholder)" width="390" height="844">
+              <img src="assets/images/closer-look/favourites-light.jpg" alt="Favourites screen, light appearance" width="780" height="1696">
             </div>
             <img class="device__bezel device__bezel--light" src="assets/images/devices/iphone-18-pro-glacier.png" alt="" width="900" height="1840">
             <img class="device__bezel device__bezel--dark" src="assets/images/devices/iphone-18-pro-black.png" alt="" width="900" height="1840">

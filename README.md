@@ -44,7 +44,7 @@ position variables (`--sx`, `--sy`, `--sw`, `--sh`, `--sr`) for that device in
   -crf 26 -preset slow -an -movflags +faststart out.mp4`).
   A screenshot taller than the screen (for example a full-length scrolling
   capture, 1179 px wide) pans slowly down and back up inside the frame, and
-  pauses on hover. The `your-slate` placeholder is tall to show this.
+  pauses on hover.
 
 ## Local preview
 

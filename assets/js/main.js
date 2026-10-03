@@ -143,9 +143,9 @@
         el.preload = "auto";
         el.src = src;
       } else {
-        el = new Image(390, 844);
+        el = new Image(780, 1696);
         el.src = src;
-        el.alt = label + " (placeholder)";
+        el.alt = label;
         fitScroll(el);
       }
       return el;
