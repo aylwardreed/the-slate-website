@@ -43,19 +43,32 @@
       </div>
 
       <!--
-        Three iPhone mockups. The device frame is drawn in CSS; each <img> is the
-        screen only. Replace the files in assets/images/hero/ with real
-        screenshots (portrait, 1179 × 2556 or any 9:19.5 image).
+        Hero devices. Each device is a screen image with the bezel PNG layered on
+        top (assets/images/devices/). Replace the screen files in
+        assets/images/hero/ with real screenshots (portrait, 9:19.5, e.g.
+        1179 x 2556). The MacBook and iPad screens are plain black for now; to
+        add a screenshot, put an <img> inside their .device__screen.
       -->
       <div class="hero__stage" data-hero-stage>
-        <figure class="phone phone--left" data-phone="left">
-          <div class="phone__screen"><img src="assets/images/hero/screen-2.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+        <figure class="device device--mac hero-mac" aria-hidden="true">
+          <div class="device__screen"></div>
+          <img class="device__bezel" src="assets/images/devices/macbook-neo-citrus.png" alt="" width="1610" height="1050">
         </figure>
-        <figure class="phone phone--right" data-phone="right">
-          <div class="phone__screen"><img src="assets/images/hero/screen-3.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+        <figure class="device device--ipad hero-ipad" aria-hidden="true">
+          <div class="device__screen"></div>
+          <img class="device__bezel" src="assets/images/devices/ipad-pro-space-black.png" alt="" width="1320" height="940">
         </figure>
-        <figure class="phone phone--center" data-phone="center">
-          <div class="phone__screen"><img src="assets/images/hero/screen-1.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+        <figure class="device device--iphone phone phone--left" data-phone="left">
+          <div class="device__screen"><img src="assets/images/hero/screen-2.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+          <img class="device__bezel" src="assets/images/devices/iphone-18-pro-burgundy.png" alt="" width="900" height="1840">
+        </figure>
+        <figure class="device device--iphone phone phone--right" data-phone="right">
+          <div class="device__screen"><img src="assets/images/hero/screen-3.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+          <img class="device__bezel" src="assets/images/devices/iphone-18-pro-glacier.png" alt="" width="900" height="1840">
+        </figure>
+        <figure class="device device--iphone phone phone--center" data-phone="center">
+          <div class="device__screen"><img src="assets/images/hero/screen-1.svg" alt="The Slate screen (placeholder)" width="390" height="844"></div>
+          <img class="device__bezel" src="assets/images/devices/iphone-18-pro-black.png" alt="" width="900" height="1840">
         </figure>
       </div>
     </section>
@@ -105,10 +118,13 @@
         </ul>
 
         <div class="closer__stage">
-          <figure class="phone phone--closer">
-            <div class="phone__screen" data-closer-screen>
+          <!-- Glacier bezel for the light appearance, Black bezel for dark. -->
+          <figure class="device device--iphone phone--closer" data-appearance-current="light">
+            <div class="device__screen" data-closer-screen>
               <img src="assets/images/closer-look/home-light.svg" alt="Home screen (placeholder)" width="390" height="844">
             </div>
+            <img class="device__bezel device__bezel--light" src="assets/images/devices/iphone-18-pro-glacier.png" alt="" width="900" height="1840">
+            <img class="device__bezel device__bezel--dark" src="assets/images/devices/iphone-18-pro-black.png" alt="" width="900" height="1840">
           </figure>
         </div>
 

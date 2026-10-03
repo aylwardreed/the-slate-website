@@ -68,6 +68,7 @@
     var pills = Array.prototype.slice.call(closer.querySelectorAll(".pill"));
     var swatches = Array.prototype.slice.call(closer.querySelectorAll("[data-appearance]"));
     var screen = closer.querySelector("[data-closer-screen]");
+    var device = closer.querySelector("[data-appearance-current]");
     var caption = closer.querySelector("[data-closer-caption]");
     var appearanceLabel = closer.querySelector("[data-appearance-label]");
     var current = { state: "home", appearance: "light" };
@@ -133,6 +134,7 @@
           s.tabIndex = on ? 0 : -1;
         });
         current.appearance = swatch.dataset.appearance;
+        if (device) device.setAttribute("data-appearance-current", current.appearance);
         if (appearanceLabel) appearanceLabel.textContent = swatch.getAttribute("aria-label");
         swapImage();
       });
