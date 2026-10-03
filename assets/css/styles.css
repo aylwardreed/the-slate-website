@@ -67,6 +67,11 @@ button { font: inherit; color: inherit; }
   letter-spacing: -0.01em;
   margin: 0 0 clamp(32px, 5vw, 56px);
 }
+.section-title:has(+ .section-intro) { margin-bottom: 16px; }
+.section-intro {
+  margin: 0 0 clamp(32px, 5vw, 56px); max-width: 44ch;
+  font-size: clamp(17px, 1.8vw, 21px); line-height: 1.35; color: var(--ink-2);
+}
 
 /* ---------- Nav ----------
    Transparent over the hero, with the wordmark hidden. Once the hero title
