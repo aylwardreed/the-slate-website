@@ -32,7 +32,7 @@ position variables (`--sx`, `--sy`, `--sw`, `--sh`, `--sr`) for that device in
   centre `your-slate.jpg`, right `in-production.jpg`, plus `ipad-favourites.jpg`
   and `mac-your-slate.jpg`), or update the `src` attributes in `index.html`.
 - Take a closer look: the states are the `data-state` values on the buttons in
-  `index.html` (`favourites`, `your-slate`, `in-development`, `project-pages`,
+  `index.html` (`favourites`, `your-slate`, `in-production`, `project-pages`,
   `talent-pages`, `siri-ai`, `add-to-calendar`). Each needs a light and a dark
   image named `<state>-light.svg` and `<state>-dark.svg`. For PNG or JPG files,
   add `data-ext="png"` (or `"jpg"`) to that button.
