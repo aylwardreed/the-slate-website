@@ -58,3 +58,11 @@ Then open http://localhost:8000.
 
 One-time setup: repository Settings → Pages → Build and deployment → Source:
 **GitHub Actions**. After that, every push to `main` publishes the site.
+
+## Link preview image
+
+Messaging apps and social sites show `assets/images/share.jpg` when the site's
+link is shared (set by the `og:image` tags in `index.html`). To change it,
+replace that file with a 1200 × 630 JPG or PNG under about 1 MB. If the file
+name changes, update the `og:image` URL to match. Apps cache previews, so an
+old image can persist for a while after a change.
