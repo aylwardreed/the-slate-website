@@ -12,6 +12,7 @@ assets/css/styles.css         Styles
 assets/js/main.js             Hero animation, closer-look switcher, disclosures
 assets/images/hero/           Hero screenshots: iPhones (favourites, your-slate, in-production), iPad, MacBook
 assets/images/closer-look/    One image per app state and appearance: <state>-light.svg / <state>-dark.svg
+assets/images/promo/          Announcement pop-up image
 assets/images/badges/         Official App Store and Mac App Store badges (SVG)
 assets/images/devices/        Device bezel PNGs (iPhone 18 Pro Black/Glacier/Burgundy, MacBook Neo, iPad Pro)
 .github/workflows/pages.yml   Deploys the site to GitHub Pages on every push to main
@@ -66,3 +67,12 @@ link is shared (set by the `og:image` tags in `index.html`). To change it,
 replace that file with a 1200 × 630 JPG or PNG under about 1 MB. If the file
 name changes, update the `og:image` URL to match. Apps cache previews, so an
 old image can persist for a while after a change.
+
+## Announcement pop-up
+
+A pop-up (`<dialog class="promo">` near the end of `index.html`) opens on every
+visit and shows `assets/images/promo/iphone-duo.webp`. It closes with the close
+button, Escape, or a click outside the image. Nothing is stored, so it reappears
+on the next visit (the privacy policy states the site uses no cookies or local
+storage). To change the image, replace that file and update the `src`, `width`,
+`height` and `alt` attributes. To retire the pop-up, delete the `<dialog>` block.

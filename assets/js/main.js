@@ -5,6 +5,22 @@
   document.documentElement.classList.remove("no-js");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  /* ---------- Announcement pop-up ---------- */
+  // Opens on every visit. Closes with the close button, Escape, or a click on the backdrop.
+  var promo = document.querySelector("[data-promo]");
+  if (promo && typeof promo.showModal === "function") {
+    promo.querySelector("[data-promo-close]").addEventListener("click", function () { promo.close(); });
+    promo.addEventListener("click", function (e) {
+      if (e.target === promo) {
+        var r = promo.getBoundingClientRect();
+        var inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+        if (!inside) promo.close();
+      }
+    });
+    promo.showModal();
+    promo.focus(); // keep focus off the close button so its focus ring only shows for keyboard users
+  }
+
   /* ---------- Footer year ---------- */
   var year = document.querySelector("[data-year]");
   if (year) year.textContent = new Date().getFullYear();

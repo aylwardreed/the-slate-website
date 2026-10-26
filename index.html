@@ -237,6 +237,15 @@
     <p class="small">Apple, the Apple logo, iPhone, iPad, Mac, App Store, and Mac App Store are trademarks of Apple Inc., registered in the U.S. and other countries and regions.</p>
   </footer>
 
+  <!--
+    Announcement pop-up, shown on each visit (nothing is stored, in line with the
+    privacy policy). Image: assets/images/promo/. Remove this block to retire it.
+  -->
+  <dialog class="promo" data-promo tabindex="-1" aria-label="The Slate, now on iPhone Duo">
+    <button class="promo__close" type="button" aria-label="Close" data-promo-close></button>
+    <img class="promo__image" src="assets/images/promo/iphone-duo.webp" alt="The Slate, now on iPhone Duo. Two iPhone Duo devices showing Your Slate, folded and unfolded." width="2000" height="1300">
+  </dialog>
+
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7598a024180b453f8a8704e8aaecf005"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
